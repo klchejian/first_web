@@ -1,0 +1,230 @@
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./src/resource/jquery-1.9.1.min.js"></script>
+
+    <title>SIGN UP</title>
+
+    <style type="text/css">
+        body {
+            font: 16px/20px microsft yahei;
+            opacity: 0.8;
+            background: linear-gradient(to bottom right, #302e2e, #919090);
+        }
+
+        h1 {
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .wrap {
+            text-align: center;
+            width: 50%;
+            margin: 10 auto
+        }
+
+        .wrap table {
+            border-collapse: separate;
+            border-spacing: 0px 10px;
+        }
+
+        .wrap input[type="text"],
+        .wrap input[type="password"],
+        .wrap textarea {
+            font-size: 16px;
+            color: #50a3a2;
+            width: 200px;
+        }
+
+        .wrap input[type="text"]:focus,
+        .wrap input[type="password"]:focus {
+            width: 220px;
+        }
+
+        .wrap input[type='submit'] {
+            font-size: 16px;
+            letter-spacing: 6px;
+            color: #666666;
+            background: #FFFFFF;
+            width: 200px;
+        }
+
+        .text {
+            color: #e2dfe4;
+        }
+
+        .to_login {
+            color: #a7c4c9;
+        }
+    </style>
+    <script type="text/javascript">
+        function check() {
+            var regusername = { regstr: /^[\w]{1,6}$/, tip: '用户名请输入1-6位的英文、数字、下划线' };
+            var username = document.getElementById("username").value;
+            if (!regusername.regstr.test(username)) {
+                alert(regusername.tip)
+                // return;
+            }
+
+            var regpassword = { regstr: /^[\w]{1,6}$/, tip: '密码请输入1-6位的英文、数字、下划线' };
+            var password = document.getElementById("password").value;
+            var confirm = document.getElementById("confirm").value;
+            if (!regpassword.regstr.test(password)) {
+                alert(regpassword.tip)
+                // return;
+            }
+            if (password != confirm) {
+                alert("两次密码不一致")
+                // return;
+            }
+
+            var regactualname = { regstr: /^[\w]{1,20}$/, tip: '请输入正确姓名' };
+            var actualname = document.getElementById("actualname").value;
+            if (!regactualname.regstr.test(actualname)) {
+                alert(regactualname.tip);
+            }
+
+            //test genter here
+            var gender = $("input[type='radio'][name='gender']:checked").val()
+            alert("get gender: " + gender)
+
+            var regmail = { regstr: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/, tip: '请确认邮箱格式' };
+            var mail = document.getElementById("mail").value;
+            if (!regmail.regstr.test(mail)) {
+                alert(regmail.tip);
+            }
+
+            var regtel = { regstr: /^1\d{10}$/, tip: '请输入11位的手机号' };
+            var tel = document.getElementById("tel").value;
+            if (!regtel.regstr.test(tel)) {
+                alert(regtel.tip);
+            }
+
+            var regage = { regstr: /^[1-9]+[0-9]*]*$/, tip: '请输入正确年龄' };
+            var age = document.getElementById("age").val;
+            if (!regage.regstr.test(age)) {
+                alert(regage.tip);
+            }
+
+            var education = document.getElementById("education").value;
+            alert(education);
+
+            var introduction = document.getElementById("introduction").value;
+            alert(introduction)
+
+            obj = document.getElementsByName("hobby");
+            check_val = [];
+            for (k in obj) {
+                if (obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            alert(check_val);
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <H1>Sign up</H1>
+        <table>
+            <tr>
+                <td>account name:</td>
+                <td>
+                    <input id="username" name="username" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>password:</td>
+                <td>
+                    <input id="password" name="password" type="password" />
+                </td>
+            </tr>
+            <tr>
+                <td>confirm:</td>
+                <td>
+                    <input id="confirm" name="confirm" type="password" />
+                </td>
+            </tr>
+            <tr>
+                <td>actual name:</td>
+                <td>
+                    <input id="actualname" name="actualname" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>gender:</td>
+                <td>
+                    <input type=radio name="gender" value="male" checked="checked" />male&nbsp;&nbsp;
+                    <input type=radio name="gender" value="Female" />Female
+                </td>
+            </tr>
+            <tr>
+                <td>MAIL:</td>
+                <td>
+                    <input id="mail" name="mail" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>TEL:</td>
+                <td>
+                    <input id="tel" name="tel" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>AGE:</td>
+                <td>
+                    <input id="age" name="age" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>education:</td>
+                <td>
+                    <select id="education" name="education">
+                        <option>中学</option>
+                        <option>大专</option>
+                        <option selected="selected">本科</option>
+                        <option>硕士</option>
+                        <option>博士</option>
+                        <option>其他</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>self introduction:</td>
+                <td>
+                    <textarea id="introduction" name="introduction" style="height:100px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>hobby:</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="hobby1"/> hobby1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="hobby" value="hobby2" /> hobby2
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="checkbox" name="hobby" value="hobby3" /> hobby3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="hobby" value="hobby4" /> hobby4
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Sign up" onclick="check()" />
+                </td>
+            </tr>
+
+        </table>
+        <div>
+            <span class="text">Already a member ?</span>
+            <a href="login.html" class="to_login">Go and log in</a>
+        </div>
+    </div>
+</body>
+
+</html>
