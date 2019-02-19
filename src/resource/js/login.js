@@ -12,4 +12,6 @@ function check() {
         alert(regpassword.tip)
         // return;
     }
+
+    window.location.href='index.html';
 }
