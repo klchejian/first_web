@@ -28,7 +28,12 @@ body{
 }
 .header a.a-access{
   position: absolute;
-    right: 3%;
+    right: 2%;
+    top: -18%;
+}
+.header a.a-accessl{
+  position: absolute;
+    left: 2%;
     top: -18%;
 }
 .main{
